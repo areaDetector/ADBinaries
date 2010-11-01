@@ -33,14 +33,11 @@ LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_zlib_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/X11.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/Xext.lib
 
-# Use this line to install local versions of these libraries
-# Comment it out to use system versions of the libraries
-ifeq ($(T_A), cygwin-x86)
 LIB_INSTALLS_cygwin32 += ../os/cygwin32/libGraphicsMagick++.lib ../os/cygwin32/libGraphicsMagickWand.lib ../os/cygwin32/libGraphicsMagick.lib
 LIB_INSTALLS_cygwin32 += ../os/cygwin32/liblcms.lib ../os/cygwin32/libpng14.lib ../os/cygwin32/libbz2.lib ../os/cygwin32/libfreetype.lib
 LIB_INSTALLS_cygwin32 += ../os/cygwin32/libjbig.lib ../os/cygwin32/libxml2.dll.lib
 BIN_INSTALLS_cygwin32 += ../os/cygwin32/cygxml2-2.dll
-endif
+
 ifeq ($(T_A), linux-x86)
 LIB_INSTALLS_Linux += ../os/linux-x86/libGraphicsMagick++.a ../os/linux-x86/libGraphicsMagickWand.a ../os/linux-x86/libGraphicsMagick.a
 endif
