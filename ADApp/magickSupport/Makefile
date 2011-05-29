@@ -13,7 +13,7 @@ INC += Magick++.h
 INC += $(foreach dir, Magick++ magick wand, \
      $(subst ../,,$(wildcard ../$(dir)/*.h)) )
 
-ifeq ($(T_A),win32-x86)
+ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
 LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_Magick++_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_bzlib_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_coders_.lib
@@ -31,9 +31,8 @@ LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_wand_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_wmf_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_xlib_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/CORE_RL_zlib_.lib
-endif
 
-ifeq ($(T_A),windows-x64)
+else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_Magick++_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_bzlib_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_coders_.lib
@@ -51,19 +50,23 @@ LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_wand_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_wmf_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_xlib_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_zlib_.lib
-endif
 
-LIB_INSTALLS_cygwin32 += ../os/cygwin32/libGraphicsMagick++.lib ../os/cygwin32/libGraphicsMagickWand.lib ../os/cygwin32/libGraphicsMagick.lib
-LIB_INSTALLS_cygwin32 += ../os/cygwin32/liblcms.lib ../os/cygwin32/libpng14.lib ../os/cygwin32/libbz2.lib ../os/cygwin32/libfreetype.lib
-LIB_INSTALLS_cygwin32 += ../os/cygwin32/libjbig.lib ../os/cygwin32/libxml2.dll.lib
+else ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
+MAGICK_LIBS = $(addprefix ../os/linux-x86_64/, libGraphicsMagick++.a libGraphicsMagickWand.a libGraphicsMagick.a)
+LIB_INSTALLS_Linux += $(MAGICK_LIBS)
+
+else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
+MAGICK_LIBS = $(addprefix ../os/linux-x86/, libGraphicsMagick++.a libGraphicsMagickWand.a libGraphicsMagick.a)
+LIB_INSTALLS_Linux += $(MAGICK_LIBS)
+
+else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
+MAGICK_LIBS  = $(addprefix ../os/cygwin32/, libGraphicsMagick++.lib libGraphicsMagickWand.lib libGraphicsMagick.lib)
+MAGICK_LIBS += $(addprefix ../os/cygwin32/, liblcms.lib libpng14.lib libbz2.lib libfreetype.lib)
+MAGICK_LIBS += $(addprefix ../os/cygwin32/, libjbig.lib libxml2.dll.lib)
+LIB_INSTALLS_cygwin32 += $(MAGICK_LIBS)
 BIN_INSTALLS_cygwin32 += ../os/cygwin32/cygxml2-2.dll
+endif
 
-ifeq ($(T_A), linux-x86)
-LIB_INSTALLS_Linux += ../os/linux-x86/libGraphicsMagick++.a ../os/linux-x86/libGraphicsMagickWand.a ../os/linux-x86/libGraphicsMagick.a
-endif
-ifeq ($(T_A), linux-x86_64) 
-LIB_INSTALLS_Linux += ../os/linux-x86_64/libGraphicsMagick++.a ../os/linux-x86_64/libGraphicsMagickWand.a ../os/linux-x86_64/libGraphicsMagick.a
-endif
 
 #=============================
 
