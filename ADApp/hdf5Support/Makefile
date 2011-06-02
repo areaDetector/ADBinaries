@@ -4,29 +4,77 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 
+# This directory contains files to support the HDF5 library version 1.8.7
+# on WIN32 and Linux, so users don't need to install it.
+# Read the README file in this directory to see where these files came from.
+
+INC += H5ACpublic.h
+INC += H5Apublic.h
+INC += H5Cpublic.h
+INC += H5DSpublic.h
+INC += H5Dpublic.h
+INC += H5Epubgen.h
+INC += H5Epublic.h
+INC += H5FDcore.h
+INC += H5FDdirect.h
+INC += H5FDfamily.h
+INC += H5FDlog.h
+INC += H5FDmpi.h
+INC += H5FDmpio.h
+INC += H5FDmpiposix.h
+INC += H5FDmulti.h
+INC += H5FDpublic.h
+INC += H5FDsec2.h
+INC += H5FDstdio.h
+INC += H5Fpublic.h
+INC += H5Gpublic.h
+INC += H5IMpublic.h
+INC += H5Ipublic.h
+INC += H5LTpublic.h
+INC += H5Lpublic.h
+INC += H5MMpublic.h
+INC += H5Opublic.h
+INC += H5PTpublic.h
+INC += H5Ppublic.h
+INC += H5Rpublic.h
+INC += H5Spublic.h
+INC += H5TBpublic.h
+INC += H5Tpublic.h
+INC += H5Zpublic.h
+INC += H5api_adpt.h
+INC += H5overflow.h
+INC += H5pubconf.h
+INC += H5public.h
+INC += H5version.h
+INC += hdf5.h
+INC += hdf5_hl.h
+
+# Windows-specific files
+INC += H5FDwindows.h
+
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
-NEXUS_LIBS = $(addprefix ../os/WIN32/, hdf5.lib libszip.lib zlib.lib)
-LIB_INSTALLS_WIN32   +=  $(NEXUS_LIBS)
+HDF5_LIBS = $(addprefix ../os/win32-x86/, hdf5.lib libszip.lib zlib.lib)
+LIB_INSTALLS_WIN32   +=  $(HDF5_LIBS)
 
 else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
-NEXUS_LIBS = $(addprefix ../os/WIN32/x64/, hdf5.lib libszip.lib zlib.lib)
-LIB_INSTALLS_WIN32   += $(NEXUS_LIBS)
+HDF5_LIBS = $(addprefix ../os/windows-x64/, hdf5.lib libszip.lib zlib.lib)
+LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
 
 else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
-NEXUS_LIBS = $(addprefix ../os/WIN32/, hdf5.lib libszip.lib zlib.lib)
-LIB_INSTALLS_cygwin32   += $(NEXUS_LIBS)
+HDF5_LIBS = $(addprefix ../os/win32-x86/, hdf5.lib libszip.lib zlib.lib)
+LIB_INSTALLS_cygwin32   += $(HDF5_LIBS)
 
 else ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-NEXUS_LIBS = $(addprefix ../os/linux-x86_64/, libNeXus.a libhdf5.a libdf.a libmfhdf.a libmxml.a)
-LIB_INSTALLS_Linux   += $(NEXUS_LIBS)
+HDF5_LIBS = $(addprefix ../os/linux-x86_64/, libhdf5.a libsz.a)
+LIB_INSTALLS_Linux   += $(HDF5_LIBS)
 
 else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
-NEXUS_LIBS = $(addprefix ../os/linux-x86/, libNeXus.a libhdf5.a libdf.a libmfhdf.a libmxml.a)
-LIB_INSTALLS_Linux   += $(NEXUS_LIBS)
+HDF5_LIBS = $(addprefix ../os/linux-x86/, libhdf5.a libsz.a)
+LIB_INSTALLS_Linux   += $(HDF5_LIBS)
 
 else ifeq (solaris-sparc, $(findstring solaris-sparc, $(T_A)))
-NEXUS_LIBS = $(addprefix ../os/solaris-sparc/, libNeXus.a libNeXusCPP.a libhdf5.a libhdf5_cpp.a libmxml.a)
-LIB_INSTALLS_solaris += $(NEXUS_LIBS)
+HDF5_LIBS = $(addprefix ../os/solaris-sparc/, libhdf5.a libsz.a)
+LIB_INSTALLS_solaris += $(HDF5_LIBS)
 endif
 
 #=============================
