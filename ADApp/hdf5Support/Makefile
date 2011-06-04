@@ -61,7 +61,7 @@ HDF5_LIBS = $(addprefix ../os/windows-x64/, hdf5.lib libszip.lib zlib.lib)
 LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
 
 else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
-HDF5_LIBS = $(addprefix ../os/win32-x86/, hdf5.lib libszip.lib zlib.lib)
+HDF5_LIBS = $(addprefix ../os/cygwin-x86/, libhdf5.lib libsz.lib)
 LIB_INSTALLS_cygwin32   += $(HDF5_LIBS)
 
 else ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
