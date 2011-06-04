@@ -13,5 +13,7 @@ The library files in win32-x86 were extracted from HDF5-1.8.7_win_x86.zip, that 
 The library files in windows-x64 were extracted from HDF5-1.8.7_win_x64.zip, that was downloaded from the HDF Web site.
 
 The library files in cygwin-x86 were extracted from hdf5-1.8.7_cygwin_x86_static.zip, that was downloaded from the HDF Web site.
+libhdf5.a was renamed to libhdf5.lib, and libsz.a was renamed to libsz.lib to work with EPICS, which expects libraries to have 
+the .lib extension.
 
 
