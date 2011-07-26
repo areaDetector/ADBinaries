@@ -16,4 +16,5 @@ The library files in cygwin-x86 were extracted from hdf5-1.8.7_cygwin_x86_static
 libhdf5.a was renamed to libhdf5.lib, and libsz.a was renamed to libsz.lib to work with EPICS, which expects libraries to have 
 the .lib extension.
 
-
+The library files in os/darwin-x86 are universal libraries for the i386 and x86_64 architectures.  They
+require Mac OS X 10.5 or later.  They were built from the HDF5 1.8.7 and szip 2.1 source distributions.
