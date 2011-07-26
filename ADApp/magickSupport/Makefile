@@ -65,6 +65,11 @@ MAGICK_LIBS += $(addprefix ../os/cygwin32/, liblcms.lib libpng14.lib libbz2.lib 
 MAGICK_LIBS += $(addprefix ../os/cygwin32/, libjbig.lib libxml2.dll.lib)
 LIB_INSTALLS_cygwin32 += $(MAGICK_LIBS)
 BIN_INSTALLS_cygwin32 += ../os/cygwin32/cygxml2-2.dll
+
+else ifeq (darwin-x86, $(findstring darwin-x86, $(T_A)))
+MAGICK_LIBS  = $(addprefix ../os/darwin-x86/, libGraphicsMagick++.a libGraphicsMagickWand.a libGraphicsMagick.a)
+MAGICK_LIBS += $(addprefix ../os/darwin-x86/, libpng.a libtiff.a libjpeg.a)
+LIB_INSTALLS_Darwin += $(MAGICK_LIBS)
 endif
 
 
