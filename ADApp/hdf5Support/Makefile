@@ -64,8 +64,15 @@ HDF5_LIBS = $(addprefix ../os/win32-x86/, hdf5.lib libszip.lib zlib.lib)
 LIB_INSTALLS_WIN32   +=  $(HDF5_LIBS)
 
 else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
-HDF5_LIBS = $(addprefix ../os/windows-x64/, hdf5.lib libszip.lib zlib.lib)
-LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
+  ifeq ($(STATIC_BUILD), NO)
+    HDF5_LIBS = $(addprefix ../os/windows-x64-shared/, hdf5dll.lib szip.lib zlib1.lib)
+    HDF5_BINS = $(addprefix ../os/windows-x64-shared/, hdf5dll.dll szip.dll zlib1.dll)
+    LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
+    BIN_INSTALLS_WIN32   += $(HDF5_BINS)
+  else
+    HDF5_LIBS = $(addprefix ../os/windows-x64/, hdf5.lib libszip.lib zlib.lib)
+    LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
+  endif
 
 else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
 HDF5_LIBS = $(addprefix ../os/cygwin-x86/, libhdf5.lib libsz.lib)
