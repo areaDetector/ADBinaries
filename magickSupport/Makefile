@@ -5,12 +5,12 @@ include $(TOP)/configure/CONFIG
 #=============================
 
 # This directory contains files to support GraphicsMagick so users don't need to install it
-# These files were obtained from the distribution at
-# http://gnuwin32.sourceforge.net/packages/tiff.htm
-# http://gnuwin32.sourceforge.net/packages/jpeg.htm
-# 
-INC += Magick++.h
-INC += $(foreach dir, Magick++ magick wand, \
+ 
+INC_WIN32 += Magick++.h
+INC_WIN32 += $(foreach dir, Magick++ magick wand, \
+     $(subst ../,,$(wildcard ../$(dir)/*.h)) )
+INC_cygwin32 += Magick++.h
+INC_cygwin32 += $(foreach dir, Magick++ magick wand, \
      $(subst ../,,$(wildcard ../$(dir)/*.h)) )
 
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
@@ -51,14 +51,6 @@ LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_wmf_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_xlib_.lib
 LIB_INSTALLS_WIN32    += ../os/WIN32/x64/CORE_RL_zlib_.lib
 
-else ifeq (linux-x86_64, $(findstring linux-x86_64, $(T_A)))
-MAGICK_LIBS = $(addprefix ../os/linux-x86_64/, libGraphicsMagick++.a libGraphicsMagickWand.a libGraphicsMagick.a)
-LIB_INSTALLS_Linux += $(MAGICK_LIBS)
-
-else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
-MAGICK_LIBS = $(addprefix ../os/linux-x86/, libGraphicsMagick++.a libGraphicsMagickWand.a libGraphicsMagick.a)
-LIB_INSTALLS_Linux += $(MAGICK_LIBS)
-
 else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
 MAGICK_LIBS  = $(addprefix ../os/cygwin32/, libGraphicsMagick++.lib libGraphicsMagickWand.lib libGraphicsMagick.lib)
 MAGICK_LIBS += $(addprefix ../os/cygwin32/, liblcms.lib libpng14.lib libbz2.lib libfreetype.lib)
@@ -66,10 +58,6 @@ MAGICK_LIBS += $(addprefix ../os/cygwin32/, libjbig.lib libxml2.dll.lib)
 LIB_INSTALLS_cygwin32 += $(MAGICK_LIBS)
 BIN_INSTALLS_cygwin32 += ../os/cygwin32/cygxml2-2.dll
 
-else ifeq (darwin-x86, $(findstring darwin-x86, $(T_A)))
-MAGICK_LIBS  = $(addprefix ../os/darwin-x86/, libGraphicsMagick++.a libGraphicsMagickWand.a libGraphicsMagick.a)
-MAGICK_LIBS += $(addprefix ../os/darwin-x86/, libpng.a libtiff.a libjpeg.a)
-LIB_INSTALLS_Darwin += $(MAGICK_LIBS)
 endif
 
 
