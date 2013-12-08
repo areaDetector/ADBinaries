@@ -2,9 +2,5 @@
 TOP = .
 include $(TOP)/configure/CONFIG
 DIRS := $(DIRS) $(filter-out $(DIRS), configure)
-DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))
-DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *app))
-ifeq ($(BUILD_APPS), YES)
-DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
-endif
+DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *Support))
 include $(TOP)/configure/RULES_TOP
