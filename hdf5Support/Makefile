@@ -53,49 +53,6 @@ INC_WIN32 += hdf5_hl.h
 INC_WIN32 += H5FDwindows.h
 INC_WIN32 += H5pubconf.h H5pubconf_32.h H5pubconf_64.h
 
-
-INC_cygwin32 += H5ACpublic.h
-INC_cygwin32 += H5Apublic.h
-INC_cygwin32 += H5Cpublic.h
-INC_cygwin32 += H5DSpublic.h
-INC_cygwin32 += H5Dpublic.h
-INC_cygwin32 += H5Epubgen.h
-INC_cygwin32 += H5Epublic.h
-INC_cygwin32 += H5FDcore.h
-INC_cygwin32 += H5FDdirect.h
-INC_cygwin32 += H5FDfamily.h
-INC_cygwin32 += H5FDlog.h
-INC_cygwin32 += H5FDmpi.h
-INC_cygwin32 += H5FDmpio.h
-INC_cygwin32 += H5FDmpiposix.h
-INC_cygwin32 += H5FDmulti.h
-INC_cygwin32 += H5FDpublic.h
-INC_cygwin32 += H5FDsec2.h
-INC_cygwin32 += H5FDstdio.h
-INC_cygwin32 += H5Fpublic.h
-INC_cygwin32 += H5Gpublic.h
-INC_cygwin32 += H5IMpublic.h
-INC_cygwin32 += H5Ipublic.h
-INC_cygwin32 += H5LTpublic.h
-INC_cygwin32 += H5Lpublic.h
-INC_cygwin32 += H5MMpublic.h
-INC_cygwin32 += H5Opublic.h
-INC_cygwin32 += H5PTpublic.h
-INC_cygwin32 += H5Ppublic.h
-INC_cygwin32 += H5Rpublic.h
-INC_cygwin32 += H5Spublic.h
-INC_cygwin32 += H5TBpublic.h
-INC_cygwin32 += H5Tpublic.h
-INC_cygwin32 += H5Zpublic.h
-INC_cygwin32 += H5api_adpt.h
-INC_cygwin32 += H5overflow.h
-INC_cygwin32 += H5public.h
-INC_cygwin32 += H5version.h
-INC_cygwin32 += hdf5.h
-INC_cygwin32 += hdf5_hl.h
-INC_cygwin32 += H5FDwindows.h
-INC_cygwin32 += H5pubconf.h
-
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
   ifeq ($(STATIC_BUILD), NO)
     HDF5_LIBS = $(addprefix ../os/win32-x86-shared/, hdf5dll.lib szip.lib zlib1.lib)
@@ -117,10 +74,6 @@ else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
     HDF5_LIBS = $(addprefix ../os/windows-x64-static/, hdf5.lib libszip.lib zlib.lib)
     LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
   endif
-
-else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
-HDF5_LIBS = $(addprefix ../os/cygwin-x86/, libhdf5.lib libsz.lib)
-LIB_INSTALLS_cygwin32   += $(HDF5_LIBS)
 
 endif
 
