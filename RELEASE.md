@@ -17,7 +17,7 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
-R2-1 (Semptember 12, 2014)
+R2-1 (October 17, 2014)
 ----
 * Removed the Cygwin files from hdf5Support.  libhdf5-devel is available as
   part of the Cygwin installation, and must now be installed rather than using
