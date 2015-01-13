@@ -33,8 +33,11 @@ The commands to configure and build the libraries were:
         -DHDF5_ALLOW_EXTERNAL_SUPPORT:STRING=TGZ 
         -DZLIB_TGZ_NAME:STRING="ZLib.tar.gz" 
         -DSZIP_TGZ_NAME:STRING="SZip.tar.gz" 
+        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
         ..
- 
+    
+    set VERBOSE=1
+    
     cmake.exe --build . --config RelWithDebInfo
 
 
@@ -71,8 +74,11 @@ The following commands were used to compile and build the libraries:
         -DCMAKE_C_FLAGS_MINSIZEREL:STRING="/MT /O1 /Ob1 /D NDEBUG"
         -DCMAKE_C_FLAGS_RELEASE:STRING="/MT /O2 /Ob2 /D NDEBUG"
         -DCMAKE_C_FLAGS_RELWITHDEBINFO:STRING="/MT /Zi /O2 /Ob1 /D NDEBUG"
+        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
         ..
-
+    
+    set VERBOSE=1
+    
     cmake.exe --build . --config RelWithDebInfo
 
 
