@@ -11,6 +11,10 @@ as these may make it easier to debug an IOC which is linked to the HDF5 librarie
 
 The szip and zlib compression libraries were built from sources as part of the HDF5 library build.
 
+This version of ADBinaies include both a static and a shared (dynamic/DLL) build of the HDF5 libraries. The
+library names do not conflict so both the libraries of both builds are installed into lib/<T_A>/. The include
+files (H5pubconf.h) has been modified to support both builds. If using the dynamic/shared build the user
+must define the pre-processor variable H5_BUILT_AS_DYNAMIC_LIB. 
 
 Shared build on Windows x64
 ---------------------------
