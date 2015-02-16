@@ -45,19 +45,16 @@ INC_WIN32 += H5Tpublic.h
 INC_WIN32 += H5version.h
 INC_WIN32 += H5Zpublic.h
 INC_WIN32 += hdf5.h
-INC_WIN32 += H5pubconf.h H5pubconf_32.h H5pubconf_64_shared.h H5pubconf_64_static.h
+INC_WIN32 += H5pubconf.h 
+INC_WIN32 += H5pubconf_32_shared.h H5pubconf_32_static.h 
+INC_WIN32 += H5pubconf_64_shared.h H5pubconf_64_static.h
 
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
-  ifeq ($(STATIC_BUILD), NO)
     HDF5_LIBS = $(addprefix ../os/win32-x86-shared/, hdf5.lib szip.lib zlib.lib)
     HDF5_BINS = $(addprefix ../os/win32-x86-shared/, hdf5.dll szip.dll zlib.dll)
-    LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
     BIN_INSTALLS_WIN32   += $(HDF5_BINS)
-  else
-    HDF5_LIBS = $(addprefix ../os/win32-x86-static/, libhdf5.lib libszip.lib libzlib.lib)
+    HDF5_LIBS += $(addprefix ../os/win32-x86-static/, libhdf5.lib libszip.lib libzlib.lib)
     LIB_INSTALLS_WIN32   += $(HDF5_LIBS)
-  endif
-
 else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
     HDF5_LIBS = $(addprefix ../os/windows-x64-shared/, hdf5.lib szip.lib zlib.lib)
     HDF5_BINS = $(addprefix ../os/windows-x64-shared/, hdf5.dll szip.dll zlib.dll)

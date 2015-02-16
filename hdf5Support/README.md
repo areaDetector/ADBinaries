@@ -18,15 +18,15 @@ static/shared build (as it is generated at cmake configuration time) into os/WIN
 shared].h as it contain build-specific #defines. If using the dynamic/shared build the user
 must define the either one of the pre-processor variables H5_BUILT_AS_DYNAMIC_LIB or H5_BUILD_AS_STATIC_LIB. 
 
-Shared build on Windows x64
----------------------------
+Shared 64-bit build for Windows
+-------------------------------
 
 The HDF5 library build has been configured in the thread-safe mode which places a global lock around
 all public HDF5 function calls. This makes it safe to use in multiple instances of HDF5 plugins.
 
 The commands to configure and build the libraries were:
 
-    cmake.exe -G "Visual Studio 10 Win64" -DCMAKE_BUILD_TYPE:STRING=Release 
+    cmake.exe -G "Visual Studio 10 Win64" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo 
         -DBUILD_SHARED_LIBS:BOOL=ON 
         -DCMAKE_SKIP_RPATH:BOOL=ON 
         -DHDF5_ALLOW_EXTERNAL_SUPPORT:STRING=TGZ 
@@ -47,8 +47,8 @@ The commands to configure and build the libraries were:
     cmake.exe --build . --config RelWithDebInfo
 
 
-Static build for Windows x64
-----------------------------
+Static 64-bit build for Windows
+-------------------------------
 
 Threadsafe option is not compatible with the static build. Thus when the HDF5 library is a static build 
 the plugins which use the HDF5 library can not be used in multiple instances of the plugin.
@@ -58,7 +58,7 @@ areaDetector build configuration which uses /MT. Thus all instances of /MD are r
 /MT in the build configuration CMAKE_C[XX]_FLAGS_<config> (see below). The explanation of the
 relevant flags can be found on [MSDN](http://msdn.microsoft.com/en-us/library/2kzt1wy3%28v=vs.100%29.aspx)
 
-The following commands were used to compile and build the libraries:
+The following commands were used to compile and build the 64-bit libraries:
  
     cmake.exe -G "Visual Studio 10 Win64" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo 
         -DBUILD_SHARED_LIBS:BOOL=OFF 
@@ -86,5 +86,19 @@ The following commands were used to compile and build the libraries:
     set VERBOSE=1
     
     cmake.exe --build . --config RelWithDebInfo
+
+
+32 bit build configuration
+--------------------------
+
+The 32-bit binaries were built with the same cmake configuration options as for the 64-bit build
+as described above; only replacing the first option:
+
+    cmake.exe -G "Visual Studio 10 Win64"
+
+With:
+
+     cmake.exe -G "Visual Studio 10"
+
 
 
