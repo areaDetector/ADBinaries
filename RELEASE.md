@@ -17,6 +17,13 @@ files respectively, in the configure/ directory of the appropriate release of th
 Release Notes
 =============
 
+R2-2 (February 16, 2015)
+----
+* Updated the HDF5 libraries from release 1.8.7 to 1.8.14.  The names of the libraries have changed, so
+  Makefiles must be modified.  Both static and dynamic libraries are provided.  The symbol HDF5_STATIC_BUILD 
+  must be defined to instruct the build system which version of the library to use: YES=static, NO=dynamic.
+
+
 R2-1 (October 17, 2014)
 ----
 * Removed the Cygwin files from hdf5Support.  libhdf5-devel is available as
