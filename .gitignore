@@ -2,3 +2,6 @@ O.*
 include/
 lib/
 bin/
+*~
+*.swp
+
