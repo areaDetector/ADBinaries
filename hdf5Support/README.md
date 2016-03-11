@@ -1,7 +1,7 @@
 The files in this directory come from:
 
 
-*.h, header files HDF 1.8.14 source distribution. These files were located in the hdf5/include directory
+*.h, header files HDF 1.10.0-alpha1 source distribution. These files were located in the hdf5/include directory
 after installing the package on Linux.  The exception is H5FDWindows.h came from src/ directory in the
 distribution. 
 
@@ -14,7 +14,7 @@ The szip and zlib compression libraries were built from sources as part of the H
 This version of ADBinaies include both a static and a shared (dynamic/DLL) build of the HDF5 libraries. The
 library names do not conflict so both the libraries of both builds are installed into lib/<T_A>/. The include
 files (H5pubconf.h) has been modified to support both builds. The H5pubconf.h file was copied from the
-static/shared build (as it is generated at cmake configuration time) into os/WIN32/H5pubconf_64_[static|
+static/shared build (as it is generated at cmake configuration time) into os/WIN32/H5pubconf_[32|64]_[static|
 shared].h as it contain build-specific #defines. If using the dynamic/shared build the user
 must define the either one of the pre-processor variables H5_BUILT_AS_DYNAMIC_LIB or H5_BUILD_AS_STATIC_LIB. 
 
