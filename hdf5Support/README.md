@@ -5,13 +5,13 @@ The files in this directory come from:
 after installing the package on Linux.  The exception is H5FDWindows.h came from src/ directory in the
 distribution. 
 
-The Windows binaries were built using cmake (2.8.12) and the Visual Studio 2010 compiler, using instructions
+The Windows binaries were built using cmake (3.4) and the Visual Studio 2010 compiler, using instructions
 from the HDF Group website. The build has been configured as a Release build - but including debug files
 as these may make it easier to debug an IOC which is linked to the HDF5 libraries.
 
 The szip and zlib compression libraries were built from sources as part of the HDF5 library build.
 
-This version of ADBinaies include both a static and a shared (dynamic/DLL) build of the HDF5 libraries. The
+This version of ADBinaries include both a static and a shared (dynamic/DLL) build of the HDF5 libraries. The
 library names do not conflict so both the libraries of both builds are installed into lib/<T_A>/. The include
 files (H5pubconf.h) has been modified to support both builds. The H5pubconf.h file was copied from the
 static/shared build (as it is generated at cmake configuration time) into os/WIN32/H5pubconf_[32|64]_[static|
@@ -32,14 +32,20 @@ The commands to configure and build the libraries were:
         -DHDF5_ALLOW_EXTERNAL_SUPPORT:STRING=TGZ 
         -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=ON 
         -DHDF5_ENABLE_THREADSAFE:BOOL=ON 
-        -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON 
+        -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON  
         -DHDF5_ENABLE_SZIP_ENCODING:BOOL=ON 
         -DSZIP_USE_EXTERNAL:BOOL=ON 
-        -DZLIB_USE_EXTERNAL:BOOL=ON  
+        -DZLIB_USE_EXTERNAL:BOOL=ON 
         -DHDF5_ALLOW_EXTERNAL_SUPPORT:STRING=TGZ 
         -DZLIB_TGZ_NAME:STRING="ZLib.tar.gz" 
         -DSZIP_TGZ_NAME:STRING="SZip.tar.gz" 
-        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
+        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON 
+        -DHDF5_BUILD_CPP_LIB:BOOL=OFF 
+        -DHDF5_BUILD_HL_LIB:BOOL=OFF 
+        -DHDF5_BUILD_EXAMPLES:BOOL=OFF 
+        -DHDF5_BUILD_TOOLS:BOOL=OFF 
+        -DBUILD_TESTING:BOOL=OFF 
+        -DBUILD_STATIC_EXECS:BOOL=OFF 
         ..
     
     set VERBOSE=1
