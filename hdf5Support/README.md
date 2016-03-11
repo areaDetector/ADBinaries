@@ -87,6 +87,12 @@ The following commands were used to compile and build the 64-bit libraries:
         -DCMAKE_C_FLAGS_RELEASE:STRING="/MT /O2 /Ob2 /D NDEBUG"
         -DCMAKE_C_FLAGS_RELWITHDEBINFO:STRING="/MT /Zi /O2 /Ob1 /D NDEBUG"
         -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
+        -DHDF5_BUILD_CPP_LIB:BOOL=OFF 
+        -DHDF5_BUILD_HL_LIB:BOOL=OFF 
+        -DHDF5_BUILD_EXAMPLES:BOOL=OFF 
+        -DHDF5_BUILD_TOOLS:BOOL=OFF 
+        -DBUILD_TESTING:BOOL=OFF 
+        -DBUILD_STATIC_EXECS:BOOL=OFF
         ..
     
     set VERBOSE=1

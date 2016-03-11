@@ -3,11 +3,11 @@
 
 General Information:
 -------------------
-                   HDF5 Version: 1.8.14
-                  Configured on: 
-                  Configured by: Visual Studio 10 Win64
-                 Configure mode: CMAKE 2.8.12.2
-                    Host system: Windows-6.1
+                   HDF5 Version: 1.10.0-alpha1
+                  Configured on: 2016-03-11
+                  Configured by: Visual Studio 10 2010 Win64
+                 Configure mode: CMAKE 3.4.2
+                    Host system: Windows-6.1.7601
               Uname information: Windows
                        Byte sex: little-endian
                       Libraries: 
@@ -23,12 +23,12 @@ Compiling Options:
                        CPPFLAGS: 
                     H5_CPPFLAGS: 
                     AM_CPPFLAGS: 
-               Shared Libraries: NO
-               Static Libraries: YES
+               Shared C Library: NO
+               Static C Library: YES
   Statically Linked Executables: OFF
-                        LDFLAGS:  /machine:x64 
+                        LDFLAGS:  /machine:x64
                      AM_LDFLAGS: 
-                Extra libraries: zlib;szip
+                Extra libraries: zlib-static;szip-static
                        Archiver: 
                          Ranlib: 
               Debugged Packages: 
@@ -38,31 +38,34 @@ Languages:
 ----------
                         Fortran: OFF
                Fortran Compiler: 
-          Fortran 2003 Compiler: 
                   Fortran Flags: 
                H5 Fortran Flags: 
                AM Fortran Flags: 
+         Shared Fortran Library: NO
+         Static Fortran Library: YES
+
                             C++: OFF
                    C++ Compiler: c:/Program Files (x86)/Microsoft Visual Studio 10.0/VC/bin/x86_amd64/cl.exe
                       C++ Flags:  /DWIN32 /D_WINDOWS /W3 /GR /EHsc
                    H5 C++ Flags: 
                    AM C++ Flags: 
+             Shared C++ Library: NO
+             Static C++ Library: YES
 
 Features:
 ---------
                   Parallel HDF5: OFF
              High Level library: OFF
                    Threadsafety: OFF
-            Default API Mapping: v18
+            Default API Mapping: v110
  With Deprecated Public Symbols: ON
          I/O filters (external):  DEFLATE DECODE ENCODE
-         I/O filters (internal):  SHUFFLE FLETCHER32 NBIT SCALEOFFSET
                             MPE: 
                      Direct VFD: 
                         dmalloc: 
 Clear file buffers before write: ON
            Using memory checker: OFF
+Memory allocation sanity checks: OFF
          Function Stack Tracing: OFF
       Strict File Format Checks: OFF
    Optimization Instrumentation: 
-       Large File Support (LFS): 
