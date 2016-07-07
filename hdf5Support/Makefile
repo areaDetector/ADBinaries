@@ -37,6 +37,7 @@ INC_WIN32 += H5MMpublic.h
 INC_WIN32 += H5Opublic.h
 INC_WIN32 += H5overflow.h
 INC_WIN32 += H5PLextern.h
+INC_WIN32 += H5PLpublic.h
 INC_WIN32 += H5Ppublic.h
 INC_WIN32 += H5public.h
 INC_WIN32 += H5Rpublic.h
