@@ -22,6 +22,8 @@ R2-2 (March 23, 2015)
 * Updated the HDF5 libraries from release 1.8.7 to 1.8.14.  The names of the libraries have changed, so
   Makefiles must be modified.  Both static and dynamic libraries are provided.  The symbol HDF5_STATIC_BUILD 
   must be defined to instruct the build system which version of the library to use: YES=static, NO=dynamic.
+  **NOTE:** This is the last release of ADBinaries.  Starting with areaDetector and ADCore R2-5 these libraries
+  are now provided in source code form in ADSupport.
 
 
 R2-1 (October 17, 2014)
